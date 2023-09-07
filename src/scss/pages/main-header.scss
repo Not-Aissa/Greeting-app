@@ -1,0 +1,56 @@
+@import "../mixins/flex/flex-row.scss";
+@import "../mixins/flex/flex-col.scss";
+@import "../mixins/reset/reset-element.scss";
+@import "../variables/colors.scss";
+@import "../variables/borders.scss";
+@import "../variables/transitions.scss";
+
+.container .main-header {
+  @include flex-col;
+  gap: 0.5rem;
+
+  .greeting-section {
+    @include flex-row;
+    gap: 0.25rem;
+
+    p {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+
+  .g-options-section {
+    @include flex-col;
+    gap: 0.5rem;
+
+    select,
+    input,
+    button {
+      @include reset-element;
+      background-color: $black_color;
+      color: $white_color;
+      padding: 0.3rem 0.7rem;
+      border-radius: $rounded;
+    }
+
+    button {
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition-duration: $smooth;
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+
+    input {
+      transition-duration: $smooth;
+
+      &:focus {
+        transform: scale(1.03);
+      }
+    }
+  }
+}
